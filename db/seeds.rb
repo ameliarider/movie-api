@@ -14,3 +14,7 @@
 # 10.times do
 #   actor = Actor.create(first_name: FFaker::Name.first_name, last_name: FFaker::Name.last_name, known_for: FFaker::Music.genre)
 # end
+
+# actor = Actor.create(first_name: "Bradley", last_name: "Cooper", known_for: "drama", movie_id: 5)
+
+movie = Movie.create(name: "A Star Is Born", description: "Music", release_data: "2018",)
