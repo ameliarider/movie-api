@@ -1,42 +1,44 @@
 class ActorsController < ApplicationController
   def index
-    actors = Actor.all
+    @actors = Actor.all
 
-    render json: actors
+    render :index
   end
 
   def create
-    actor = Actor.create(
+    @actor = Actor.create(
     first_name: params["first_name"],
     last_name: params["last_name"],
-    known_for: params["known_for"]
+    known_for: params["known_for"],
+    movie_id: params["movie_id"]
     )
 
-  render json: actor
+  render :show
   end
 
   def show
-    actor = Actor.find(params[:id])
+    @actor = Actor.find(params[:id])
 
-    render json: actor
+    render :show
   end
 
   def update
-      actor = Actor.find(params[:id])
+      @actor = Actor.find(params[:id])
 
-      actor.update(
+      @actor.update(
         first_name: params["first_name" || actor.first_name],
-        last_name: params["last_name"] || actor.last_name,
-        known_for: params["known_for"] || actor.known_for
+        last_name: paramas["last_name"] || actor.last_name,
+        known_for: params["known_for"] || actor.known_for,
+        movie_id: params["movie_id"]
       )
 
-    render json: actor
+    render :show
   end
 
   def destroy
-    actor = Actor.find(params[:id])
+    @actor = Actor.find(params[:id])
 
-    actor.destroy
+    @actor.destroy
 
     render json: { message: "Actor deleted" }
   end

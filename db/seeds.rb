@@ -17,4 +17,4 @@
 
 # actor = Actor.create(first_name: "Bradley", last_name: "Cooper", known_for: "drama", movie_id: 5)
 
-movie = Movie.create(name: "A Star Is Born", description: "Music", release_data: "2018",)
+movie = Movie.create(name: "A Star Is Born", description: "Music", release_date: "2018")
